@@ -12,12 +12,12 @@ window.addEventListener('load', () => {
 //  DARK / LIGHT MODE TOGGLE
 // ============================
 const themeButton = document.getElementById('theme-button');
-const themeIcon   = themeButton ? themeButton.querySelector('i') : null;
+const themeIcon = themeButton ? themeButton.querySelector('i') : null;
 
 if (themeButton && themeIcon) {
   themeButton.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
-    
+
     // Switch icon
     if (document.body.classList.contains('light-mode')) {
       themeIcon.classList.remove('bx-moon');
@@ -33,7 +33,7 @@ if (themeButton && themeIcon) {
 //  HAMBURGER MENU
 // ============================
 const menuIcon = document.querySelector('#menu-icon');
-const navbar   = document.querySelector('.navbar');
+const navbar = document.querySelector('.navbar');
 
 menuIcon.addEventListener('click', () => {
   menuIcon.classList.toggle('bx-x');
@@ -78,8 +78,8 @@ new Typed('.typed-text', {
 // ============================
 //  ACTIVE NAV LINK ON SCROLL
 // ============================
-const sections    = document.querySelectorAll('section');
-const navLinks    = document.querySelectorAll('.navbar a');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('.navbar a');
 
 const navObserver = new IntersectionObserver(
   (entries) => {
@@ -104,7 +104,7 @@ sections.forEach(section => navObserver.observe(section));
 //  SKILL BAR ANIMATION (on scroll)
 // ============================
 const skillsSection = document.querySelector('#skills');
-let skillsAnimated  = false;
+let skillsAnimated = false;
 
 const skillObserver = new IntersectionObserver(
   (entries) => {
@@ -153,34 +153,34 @@ if (yearSpan) {
 // ============================
 const contactForm = document.getElementById('contact-form');
 if (contactForm) {
-  contactForm.addEventListener('submit', function(e) {
+  contactForm.addEventListener('submit', function (e) {
     e.preventDefault(); // Prevent default page redirect
-    
+
     const emailInput = document.getElementById('email').value.trim();
     const phoneInput = document.getElementById('phone').value.trim();
-    
+
     // Check if email contains @ mark
     if (!emailInput.includes('@')) {
       alert('@ mark is missing');
       return;
     }
-    
+
     // Check if email ends with @gmail.com
     if (!emailInput.toLowerCase().endsWith('@gmail.com')) {
       alert('Please enter a valid @gmail.com email address.');
       return;
     }
-    
+
     // Check if phone is exactly 10 digits
     const phoneRegex = /^\d{10}$/;
     if (!phoneRegex.test(phoneInput)) {
       alert('Please enter exactly 10 digits for the phone number.');
       return;
     }
-    
+
     // AJAX Submission to prevent redirect
     const formData = new FormData(contactForm);
-    
+
     fetch(contactForm.action, {
       method: contactForm.method,
       body: formData,
@@ -197,6 +197,6 @@ if (contactForm) {
     }).catch(error => {
       alert("Oops! There was a problem submitting your form.");
     });
-    
+
   });
 }
