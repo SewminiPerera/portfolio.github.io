@@ -180,11 +180,14 @@
     </div>
 
     <script>
-        // Automatically prompt the user to save/print as PDF when the page loads
+        // Automatically prompt the user to save/print as PDF only if requested via URL
         window.onload = function() {
-            setTimeout(function() {
-                window.print();
-            }, 500); 
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('download') === 'true') {
+                setTimeout(function() {
+                    window.print();
+                }, 500); 
+            }
         };
     </script>
 </body>
