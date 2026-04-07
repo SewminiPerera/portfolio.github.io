@@ -90,6 +90,54 @@ if (filterBtns.length > 0) {
 }
 
 // ============================
+//  LIGHTBOX LOGIC
+// ============================
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxCaption = document.getElementById('lightbox-caption');
+const lightboxClose = document.querySelector('.lightbox-close');
+const lightboxNext = document.querySelector('.lightbox-next');
+const lightboxPrev = document.querySelector('.lightbox-prev');
+
+let currentActiveItems = [];
+let currentImageIndex = 0;
+
+if (lightbox && graphicItems.length > 0) {
+  graphicItems.forEach((item) => {
+    item.addEventListener('click', () => {
+      currentActiveItems = Array.from(graphicItems).filter(el => !el.classList.contains('hide'));
+      currentImageIndex = currentActiveItems.indexOf(item);
+      showLightboxImage();
+      lightbox.classList.add('show');
+    });
+  });
+
+  lightboxClose.addEventListener('click', () => lightbox.classList.remove('show'));
+
+  lightboxNext.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex + 1) % currentActiveItems.length;
+    showLightboxImage();
+  });
+
+  lightboxPrev.addEventListener('click', (e) => {
+    e.stopPropagation();
+    currentImageIndex = (currentImageIndex - 1 + currentActiveItems.length) % currentActiveItems.length;
+    showLightboxImage();
+  });
+
+  function showLightboxImage() {
+    const activeItem = currentActiveItems[currentImageIndex];
+    if (activeItem) {
+      const img = activeItem.querySelector('img');
+      const title = activeItem.querySelector('h4');
+      lightboxImg.src = img.src;
+      lightboxCaption.textContent = title ? title.textContent : '';
+    }
+  }
+}
+
+// ============================
 //  TYPED.JS — Typing animation
 // ============================
 new Typed('.typed-text', {
