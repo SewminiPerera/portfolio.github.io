@@ -1,0 +1,176 @@
+/* ===========================
+   CV PRINT STYLE SHEET
+   =========================== */
+
+/* Global Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f5;
+    color: #000;
+    line-height: 1.4;
+}
+
+/* Page Setup for Print/Screen */
+@page {
+    size: A4;
+    margin: 15mm 15mm 15mm 15mm;
+}
+
+.cv-page {
+    width: 210mm;        /* A4 width */
+    min-height: 297mm;   /* A4 height */
+    padding: 15mm;
+    margin: 10mm auto;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+@media print {
+    body {
+        background-color: #fff;
+    }
+    .cv-page {
+        margin: 0;
+        padding: 0;
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        min-height: auto;
+    }
+    .page-break {
+        page-break-before: always;
+    }
+}
+
+/* Header */
+header {
+    margin-bottom: 25px;
+}
+
+.cv-name {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 2px;
+}
+
+.cv-title {
+    font-size: 16px;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 12px;
+}
+
+.contact-grid {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    color: #000;
+}
+
+.contact-col p {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+}
+
+.contact-col p i {
+    font-size: 14px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+/* Sections */
+.cv-section {
+    margin-bottom: 18px;
+}
+
+.section-heading {
+    font-size: 15px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 2px solid #000;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+}
+
+.cv-paragraph {
+    font-size: 11.5px;
+    text-align: justify;
+    margin-bottom: 10px;
+}
+
+/* List Items (Experience, Education) */
+.cv-item {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.cv-date {
+    width: 130px;
+    flex-shrink: 0;
+    font-size: 11px;
+    margin-right: 15px;
+}
+
+.cv-details {
+    flex-grow: 1;
+    font-size: 11.5px;
+}
+
+.cv-details strong {
+    font-weight: bold;
+}
+
+/* Skills Split */
+.skills-split {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11.5px;
+}
+
+.tech-skills {
+    width: 60%;
+}
+
+.soft-skills {
+    width: 35%;
+}
+
+.tech-skills strong, .soft-skills strong {
+    display: inline-block;
+    margin-bottom: 6px;
+    font-size: 12px;
+}
+
+.clean-list {
+    list-style: none;
+}
+
+.clean-list li {
+    margin-bottom: 3px;
+}
+
+.skill-label {
+    font-weight: normal;
+}
+
+/* Interests Grid */
+.interest-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    font-size: 11.5px;
+    gap: 15px;
+}
+
+.interest-sub {
+    font-size: 10.5px;
+    color: #444;
+}
