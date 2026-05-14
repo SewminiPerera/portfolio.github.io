@@ -59,35 +59,53 @@ AOS.init({
 });
 
 // ============================
-//  GALLERY FILTER
+//  GALLERY LOGIC (NEW)
 // ============================
-const filterBtns = document.querySelectorAll('.filter-btn');
+const fullGalleryPanel = document.getElementById('full-gallery-panel');
+const filterBtns = document.querySelectorAll('.gallery-filter .filter-btn');
 const graphicItems = document.querySelectorAll('.graphic-item');
 
-if (filterBtns.length > 0) {
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      // Remove active class from all buttons
-      filterBtns.forEach(b => b.classList.remove('active'));
-      // Add active class to clicked button
-      btn.classList.add('active');
+function openGallery(category) {
+  if (fullGalleryPanel) {
+    fullGalleryPanel.classList.add('active');
+    document.body.style.overflow = 'hidden'; // Prevent background scrolling
 
-      const filterValue = btn.getAttribute('data-filter');
+    // Find the button corresponding to the category and trigger filter
+    const targetBtn = document.querySelector(`.gallery-filter .filter-btn[data-filter="${category}"]`);
+    if (targetBtn) {
+      filterGallery(category, targetBtn);
+    }
+  }
+}
 
-      // Filter gallery items
-      graphicItems.forEach(item => {
-        if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-          item.classList.remove('hide');
-          // Re-trigger AOS for smooth appearance (optional but nice)
-          item.classList.remove('aos-animate');
-          setTimeout(() => item.classList.add('aos-animate'), 10);
-        } else {
-          item.classList.add('hide');
-        }
-      });
-    });
+function closeGallery() {
+  if (fullGalleryPanel) {
+    fullGalleryPanel.classList.remove('active');
+    document.body.style.overflow = 'auto'; // Restore scrolling
+  }
+}
+
+function filterGallery(filterValue, btnElement) {
+  // Update active button state
+  filterBtns.forEach(btn => btn.classList.remove('active'));
+  if (btnElement) {
+    btnElement.classList.add('active');
+  }
+
+  // Filter items
+  graphicItems.forEach(item => {
+    if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
+      item.classList.remove('hide');
+    } else {
+      item.classList.add('hide');
+    }
   });
 }
+
+// Close gallery when pressing ESC key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeGallery();
+});
 
 // ============================
 //  LIGHTBOX LOGIC

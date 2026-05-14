@@ -852,7 +852,7 @@ section {
   margin-bottom: 3rem;
 }
 
-/* Gallery Filter */
+/* Gallery Filter (Full Gallery Modal) */
 .gallery-filter {
   display: flex;
   justify-content: center;
@@ -881,14 +881,183 @@ section {
   box-shadow: 0 0 15px rgba(0, 210, 255, 0.4);
 }
 
+/* Category Cards Grid */
+.gallery-cats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 3rem;
+  margin-bottom: 4rem;
+}
+
+.gcat-card {
+  position: relative;
+  border-radius: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--shadow-color);
+  cursor: pointer;
+  aspect-ratio: 4 / 3;
+}
+
+.gcat-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gcat-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.4) 50%, rgba(0,0,0,0.1) 100%);
+  transition: opacity 0.5s ease;
+}
+
+.gcat-info {
+  position: absolute;
+  bottom: 2rem;
+  left: 2rem;
+  right: 2rem;
+  color: #fff;
+  transition: transform 0.4s ease;
+}
+
+.gcat-icon {
+  width: 4rem;
+  height: 4rem;
+  background: var(--main-color);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  box-shadow: 0 5px 15px rgba(0, 210, 255, 0.3);
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+.gcat-icon i {
+  font-size: 2rem;
+  color: #000;
+}
+
+.gcat-info h3 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.gcat-count {
+  font-size: 1.4rem;
+  color: var(--main-color);
+  font-weight: 500;
+  display: inline-block;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s ease 0.1s;
+}
+
+.gcat-card:hover img {
+  transform: scale(1.1);
+}
+
+.gcat-card:hover .gcat-icon,
+.gcat-card:hover .gcat-count {
+  transform: translateY(0);
+  opacity: 1;
+}
+.gcat-card:hover .gcat-info {
+  transform: translateY(-10px);
+}
+
+/* View Full Gallery Button Wrap */
+.gallery-view-btn-wrap {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.gallery-view-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.6rem;
+  padding: 1.2rem 3rem;
+  background: transparent;
+  border: 2px solid var(--main-color);
+  color: var(--main-color);
+}
+.gallery-view-btn:hover {
+  background: var(--main-color);
+  color: #000;
+}
+
+/* Full Gallery Panel (Hidden Overlay) */
+.full-gallery-panel {
+  position: fixed;
+  inset: 0;
+  background: var(--bg-color);
+  z-index: 1000;
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.full-gallery-panel.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.full-gallery-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 8rem 2rem 5rem;
+}
+
+.full-gallery-header {
+  text-align: center;
+  margin-bottom: 4rem;
+  position: relative;
+}
+.full-gallery-header h3 {
+  font-size: 3.5rem;
+  color: var(--text-color);
+  margin-bottom: 1rem;
+}
+.full-gallery-header p {
+  font-size: 1.6rem;
+  color: var(--text-color-muted);
+}
+
+.close-gallery-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  color: var(--text-color);
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  font-size: 2.5rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s;
+}
+.close-gallery-btn:hover {
+  background: var(--main-color);
+  color: #000;
+  transform: rotate(90deg);
+}
+
 .graphic-item.hide {
   display: none;
 }
 
 .graphics-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 3rem;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2.5rem;
 }
 
 .graphic-item {
@@ -919,6 +1088,26 @@ section {
   transition: 0.5s ease;
   text-align: center;
   padding: 0 2rem;
+}
+
+.photo-badge {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.4rem 1rem;
+  border-radius: 2rem;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+.graphic-item:hover .photo-badge {
+  opacity: 1;
 }
 
 .graphic-item:hover img {
