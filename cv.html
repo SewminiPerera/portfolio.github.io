@@ -178,18 +178,6 @@
         </section>
 
     </div>
-
-    <script>
-        // Automatically prompt the user to save/print as PDF only if requested via URL
-        window.onload = function() {
-            const urlParams = new URLSearchParams(window.location.search);
-            if (urlParams.get('download') === 'true') {
-                setTimeout(function() {
-                    window.print();
-                }, 500); 
-            }
-        };
-    </script>
 </body>
 
 </html>
