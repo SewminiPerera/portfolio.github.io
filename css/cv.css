@@ -46,6 +46,9 @@ body {
     .page-break {
         page-break-before: always;
     }
+    .download-pdf-btn {
+        display: none !important;
+    }
 }
 
 /* Header */
@@ -173,4 +176,36 @@ header {
 .interest-sub {
     font-size: 10.5px;
     color: #444;
+}
+
+/* Floating Download Button */
+.download-pdf-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #0f172a;
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    font-family: inherit;
+}
+
+.download-pdf-btn i {
+    font-size: 18px;
+}
+
+.download-pdf-btn:hover {
+    background-color: #1e293b;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
 }
