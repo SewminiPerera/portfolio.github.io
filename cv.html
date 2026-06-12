@@ -14,9 +14,27 @@
 
 <body>
     <!-- Floating Download Button -->
-    <button class="download-pdf-btn" onclick="window.print()">
+    <button class="download-pdf-btn" id="download-btn" title="Download CV as PDF">
         <i class='bx bx-download'></i> Download PDF
     </button>
+
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function() {
+            // Try to open the PDF file for download
+            const link = document.createElement('a');
+            link.href = '../My CV New.pdf';
+            link.download = 'Dinithi_Sewmini_Perera_CV.pdf';
+            link.click();
+            
+            // Fallback: Also offer print-to-PDF option
+            setTimeout(() => {
+                const printOption = confirm('PDF download started. Would you also like to print/save as PDF?');
+                if (printOption) {
+                    window.print();
+                }
+            }, 500);
+        });
+    </script>
 
     <!-- ═══════════════════════════════════════ -->
     <!--              PAGE ONE                   -->
@@ -456,5 +474,22 @@
         </div><!-- end .cv-body (page 2) -->
     </div><!-- end .cv-page (page 2) -->
 
+    <script>
+        document.getElementById('download-btn').addEventListener('click', function() {
+            // Try to open the PDF file for download
+            const link = document.createElement('a');
+            link.href = '../My CV New.pdf';
+            link.download = 'Dinithi_Sewmini_Perera_CV.pdf';
+            link.click();
+            
+            // Fallback: Also offer print-to-PDF option
+            setTimeout(() => {
+                const printOption = confirm('PDF download started. Would you also like to print/save as PDF?');
+                if (printOption) {
+                    window.print();
+                }
+            }, 500);
+        });
+    </script>
 </body>
 </html>
