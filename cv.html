@@ -8,488 +8,105 @@
     <meta name="description" content="CV of Dinithi Sewmini Perera – ICT Undergraduate, Web Developer & UI/UX Designer at Rajarata University of Sri Lanka.">
     <!-- Boxicons -->
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-    <!-- CV Stylesheet -->
-    <link rel="stylesheet" href="./css/cv.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .pdf-container {
+            width: 100%;
+            max-width: 900px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+        }
+        
+        .pdf-header {
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .pdf-header h2 {
+            font-size: 24px;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .download-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: white;
+            color: #667eea;
+            border: none;
+            border-radius: 5px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+        
+        .pdf-viewer {
+            width: 100%;
+            height: 700px;
+            border: none;
+        }
+        
+        @media (max-width: 768px) {
+            .pdf-viewer {
+                height: 500px;
+            }
+            
+            .pdf-header {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .pdf-header h2 {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- Floating Download Button -->
-    <button class="download-pdf-btn" id="download-btn" title="Download CV as PDF">
-        <i class='bx bx-download'></i> Download PDF
-    </button>
+    <div class="pdf-container">
+        <div class="pdf-header">
+            <h2>My Curriculum Vitae</h2>
+            <a href="./My CV New.pdf" download="dinithi sewmini.pdf" class="download-btn">
+                <i class='bx bx-download'></i> Download PDF
+            </a>
+        </div>
+        <iframe class="pdf-viewer" src="./My CV New.pdf"></iframe>
+    </div>
+</body>
 
-    <script>
-        document.getElementById('download-btn').addEventListener('click', function() {
-            // Try to open the PDF file for download
-            const link = document.createElement('a');
-            link.href = '../My CV New.pdf';
-            link.download = 'dinithi sewmini.pdf';
-            link.click();
-            
-            // Fallback: Also offer print-to-PDF option
-            setTimeout(() => {
-                const printOption = confirm('PDF download started. Would you also like to print/save as PDF?');
-                if (printOption) {
-                    window.print();
-                }
-            }, 500);
-        });
-    </script>
-
-    <!-- ═══════════════════════════════════════ -->
-    <!--              PAGE ONE                   -->
-    <!-- ═══════════════════════════════════════ -->
-    <div class="cv-page">
-
-        <!-- ── HEADER ── -->
-        <header class="cv-header">
-            <h1 class="cv-name">Dinithi Sewmini Perera</h1>
-            <p class="cv-title">ICT Undergraduate &nbsp;|&nbsp; Web Developer &nbsp;|&nbsp; UI/UX Designer &nbsp;|&nbsp; Digital Media Creator</p>
-
-            <div class="contact-grid">
-                <div class="contact-item">
-                    <i class='bx bx-phone'></i>
-                    <span>(+94) 76 966 9953</span>
-                </div>
-                <div class="contact-item">
-                    <i class='bx bxl-linkedin'></i>
-                    <a href="https://www.linkedin.com/in/dinithi-sewmini-perera-98b2462a0/" target="_blank">Dinithi Sewmini Perera</a>
-                </div>
-                <div class="contact-item">
-                    <i class='bx bx-envelope'></i>
-                    <a href="mailto:dinithisewmini8@gmail.com">dinithisewmini8@gmail.com</a>
-                </div>
-                <div class="contact-item">
-                    <i class='bx bxl-behance'></i>
-                    <a href="https://www.behance.net/dinithisewmini" target="_blank">behance.net/dinithisewmini</a>
-                </div>
-                <div class="contact-item">
-                    <i class='bx bx-map'></i>
-                    <span>No. 42/17, Pothuwila, Madampe, Sri Lanka</span>
-                </div>
-                <div class="contact-item">
-                    <i class='bx bxl-github'></i>
-                    <a href="https://github.com/SewminiPerera" target="_blank">github.com/SewminiPerera</a>
-                </div>
-            </div>
-        </header>
-
-        <!-- ── BODY (two-column) ── -->
-        <div class="cv-body">
-
-            <!-- ════ SIDEBAR ════ -->
-            <aside class="cv-sidebar">
-
-                <!-- TECHNICAL SKILLS -->
-                <h3 class="sidebar-section-heading">Technical Skills</h3>
-
-                <p class="skill-category-name">Programming Languages</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">PHP</span>
-                    <span class="skill-tag">JavaScript</span>
-                </div>
-
-                <p class="skill-category-name">Frontend</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">HTML5</span>
-                    <span class="skill-tag">CSS3</span>
-                    <span class="skill-tag">Tailwind CSS</span>
-                    <span class="skill-tag">React.js</span>
-                    <span class="skill-tag">Responsive Design</span>
-                </div>
-
-                <p class="skill-category-name">Backend</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Node.js</span>
-                    <span class="skill-tag">Express.js</span>
-                </div>
-
-                <p class="skill-category-name">Database</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">MySQL</span>
-                    <span class="skill-tag">PostgreSQL</span>
-                    <span class="skill-tag">Firebase</span>
-                </div>
-
-                <p class="skill-category-name">UI/UX &amp; Design</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Figma</span>
-                    <span class="skill-tag">Adobe Photoshop</span>
-                    <span class="skill-tag">Canva</span>
-                    <span class="skill-tag">Adobe Lightroom</span>
-                </div>
-
-                <p class="skill-category-name">IoT &amp; Embedded</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Arduino</span>
-                    <span class="skill-tag">ESP32</span>
-                </div>
-
-                <p class="skill-category-name">Version Control</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Git</span>
-                    <span class="skill-tag">GitHub</span>
-                </div>
-
-                <p class="skill-category-name">Microsoft Office</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Word</span>
-                    <span class="skill-tag">Excel</span>
-                    <span class="skill-tag">PowerPoint</span>
-                </div>
-
-                <p class="skill-category-name">Mobile Development</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Flutter</span>
-                    <span class="skill-tag">React Native</span>
-                </div>
-
-                <p class="skill-category-name">AI Development Tools</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Claude</span>
-                    <span class="skill-tag">Gemini</span>
-                    <span class="skill-tag">Antigravity</span>
-                    <span class="skill-tag">Codex</span>
-                </div>
-
-                <p class="skill-category-name">Media Production</p>
-                <div class="skill-tags">
-                    <span class="skill-tag">Photography</span>
-                    <span class="skill-tag">Videography</span>
-                    <span class="skill-tag">Drone Ops</span>
-                    <span class="skill-tag">Drone Photography</span>
-                </div>
-
-                <!-- SOFT SKILLS -->
-                <h3 class="sidebar-section-heading">Soft Skills</h3>
-                <ul class="soft-skill-list">
-                    <li>Problem-Solving</li>
-                    <li>Communication</li>
-                    <li>Adaptability</li>
-                    <li>Time Management</li>
-                    <li>Critical Thinking</li>
-                    <li>Agile Mindset</li>
-                    <li>Leadership</li>
-                    <li>HR Management</li>
-                </ul>
-
-                <!-- LANGUAGES -->
-                <h3 class="sidebar-section-heading">Languages</h3>
-                <div class="lang-item">
-                    <div>
-                        <div class="lang-name">Sinhala</div>
-                        <div class="lang-level">Native</div>
-                    </div>
-                </div>
-                <div class="lang-bar"><div class="lang-bar-fill" style="width:100%"></div></div>
-
-                <div class="lang-item">
-                    <div>
-                        <div class="lang-name">English</div>
-                        <div class="lang-level">Professional Working</div>
-                    </div>
-                </div>
-                <div class="lang-bar"><div class="lang-bar-fill" style="width:80%"></div></div>
-
-                <div class="lang-item">
-                    <div>
-                        <div class="lang-name">German</div>
-                        <div class="lang-level">Basic</div>
-                    </div>
-                </div>
-                <div class="lang-bar"><div class="lang-bar-fill" style="width:25%"></div></div>
-
-                <!-- INTERESTS -->
-                <h3 class="sidebar-section-heading">Interests</h3>
-                <ul class="interest-list">
-                    <li>Web Development</li>
-                    <li>Full-Stack Engineering</li>
-                    <li>UI/UX Design</li>
-                    <li>Graphic Design</li>
-                    <li>Photography &amp; Videography</li>
-                    <li>Drone / Aerial Photography</li>
-                    <li>Digital Content Creation</li>
-                    <li>Emerging Technologies</li>
-                </ul>
-
-            </aside>
-
-            <!-- ════ MAIN CONTENT ════ -->
-            <main class="cv-main">
-
-                <!-- PROFESSIONAL SUMMARY -->
-                <h2 class="section-heading">Professional Summary</h2>
-                <p class="cv-summary">
-                    Motivated Information and Communication Technology undergraduate at Rajarata University of Sri Lanka with strong interests in Web Development, Full-Stack Engineering, UI/UX Design, Graphic Design, and Digital Media Production. Skilled in developing responsive web applications, creating user-friendly interfaces, and designing digital content. Experienced in leadership, project management, event coordination, media production, and financial administration through university organizations and professional work experience. Passionate about leveraging technology and creativity to build innovative digital solutions while continuously enhancing technical and professional competencies.
-                </p>
-
-                <!-- EDUCATION -->
-                <h2 class="section-heading">Education</h2>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Bachelor of Information Communication Technology (BICTHons)</div>
-                        <div class="cv-item-org">Rajarata University of Sri Lanka</div>
-                        <div class="cv-item-date">Aug 2024 – Present</div>
-                        <ul class="cv-item-bullets">
-                            <li>Expected Graduation: 2028</li>
-                            <li>Current GPA: 3.40+ (Credits: 55)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Certificate Course in Information Technology</div>
-                        <div class="cv-item-org">National Youth Council</div>
-                        <div class="cv-item-date">July 2018</div>
-                    </div>
-                </div>
-
-                <!-- PROFESSIONAL EXPERIENCE -->
-                <h2 class="section-heading">Professional Experience</h2>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Accounts Assistant</div>
-                        <div class="cv-item-org">Bio Substrates (Pvt) Ltd</div>
-                        <div class="cv-item-date">Sep 2022 – Aug 2023</div>
-                        <ul class="cv-item-bullets">
-                            <li>Managed petty cash transactions and records.</li>
-                            <li>Prepared payment vouchers and cheques.</li>
-                            <li>Performed data entry and documentation tasks.</li>
-                            <li>Assisted daily accounting operations and reporting.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- PROJECTS -->
-                <h2 class="section-heading">Projects</h2>
-
-                <div class="project-item">
-                    <div class="project-title">IoT Smart Plug System</div>
-                    <div class="project-tech">Technologies: Arduino, ESP32</div>
-                    <ul class="project-bullets">
-                        <li>Developed an IoT-based smart plug system to remotely monitor and control electrical devices.</li>
-                        <li>Implemented overload protection to reduce electricity wastage.</li>
-                        <li>Enabled real-time monitoring and management of connected appliances.</li>
-                    </ul>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Ayusha Madura E-Commerce System</div>
-                    <div class="project-tech">Technologies: HTML, JavaScript, Tailwind CSS, MySQL</div>
-                    <ul class="project-bullets">
-                        <li>Developed a responsive e-commerce platform with modern web technologies.</li>
-                        <li>Integrated database functionality for product and customer management.</li>
-                        <li>Applied user-centered design principles and responsive layouts.</li>
-                    </ul>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Digital Wedding Card System</div>
-                    <div class="project-tech">Technologies: HTML, CSS, JavaScript</div>
-                    <ul class="project-bullets">
-                        <li>Designed an interactive digital wedding invitation platform.</li>
-                        <li>Implemented RSVP forms and countdown timer functionality.</li>
-                        <li>Created elegant and responsive user interfaces.</li>
-                    </ul>
-                </div>
-
-                <div class="project-item">
-                    <div class="project-title">Digital Vesak Card System</div>
-                    <div class="project-tech">Technologies: HTML, JavaScript, CSS</div>
-                    <ul class="project-bullets">
-                        <li>Designed and developed an interactive digital Vesak greeting card system with an attractive and user-friendly interface.</li>
-                        <li>Created responsive layouts and visual designs using HTML and CSS to enhance user experience.</li>
-                        <li>Focused on creative design, usability, and smooth user interaction for digital celebrations.</li>
-                    </ul>
-                </div>
-
-            </main>
-        </div><!-- end .cv-body -->
-    </div><!-- end .cv-page (page 1) -->
-
-
-    <!-- ═══════════════════════════════════════ -->
-    <!--              PAGE TWO                   -->
-    <!-- ═══════════════════════════════════════ -->
-    <div class="cv-page page-break">
-
-        <!-- Thin accent bar at top of page 2 -->
-        <div style="height:6px; background: linear-gradient(90deg, #2d1b69, #5b21b6, #a855f7);"></div>
-
-        <div class="cv-body" style="min-height: calc(297mm - 10px);">
-
-            <!-- ════ SIDEBAR (page 2) ════ -->
-            <aside class="cv-sidebar">
-                <!-- REFERENCE -->
-                <h3 class="sidebar-section-heading">References</h3>
-                <div class="reference-item">
-                    <strong>Mr. Husni Mohomed</strong><br>
-                    <em>Lecturer</em><br>
-                    Department of Information &amp; Communication Technology<br>
-                    Faculty of Technology,<br>
-                    Rajarata University of Sri Lanka<br><br>
-                    <i class='bx bx-envelope' style="color:#7c3aed; font-size:11px;"></i>
-                    hmohamed@tec.rjt.ac.lk<br>
-                    <i class='bx bx-phone' style="color:#7c3aed; font-size:11px;"></i>
-                    (+94) 766 383 023
-                </div>
-                <div class="reference-item" style="margin-top:15px;">
-                    <strong>Ms. Udani Jayakody</strong><br>
-                    <em>Lecturer (Temporary)</em><br>
-                    Department of Information &amp; Communication Technology<br>
-                    Faculty of Technology,<br>
-                    Rajarata University of Sri Lanka<br><br>
-                    <i class='bx bx-envelope' style="color:#7c3aed; font-size:11px;"></i>
-                    usjayako@tec.rjt.ac.lk<br>
-                    <i class='bx bx-phone' style="color:#7c3aed; font-size:11px;"></i>
-                    (+94) 767 301 374
-                </div>
-            </aside>
-
-            <!-- ════ MAIN CONTENT (page 2) ════ -->
-            <main class="cv-main">
-
-                <!-- LEADERSHIP & ORGANIZATIONAL EXPERIENCE -->
-                <h2 class="section-heading">Leadership &amp; Organizational Experience</h2>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Secretary</div>
-                        <div class="cv-item-org">FOT Media Official Unit, Rajarata University</div>
-                        <div class="cv-item-date">Feb 2026 – Present</div>
-                        <ul class="cv-item-bullets">
-                            <li>Manage administrative operations and official communications.</li>
-                            <li>Coordinate meetings, events, and documentation.</li>
-                            <li>Maintain records and support faculty media initiatives.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Finance Team Leader</div>
-                        <div class="cv-item-org">IEEE Robotics &amp; Automation Society, Rajarata University</div>
-                        <div class="cv-item-date">Feb 2026 – Present</div>
-                        <ul class="cv-item-bullets">
-                            <li>Lead budgeting and financial planning activities.</li>
-                            <li>Manage resource allocation and expense tracking.</li>
-                            <li>Prepare financial reports and maintain records.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Junior Editor</div>
-                        <div class="cv-item-org">PEDONE Chess Society</div>
-                        <div class="cv-item-date">Feb 2026 – Present</div>
-                        <ul class="cv-item-bullets">
-                            <li>Edit and review content for publications.</li>
-                            <li>Support social media management and content creation.</li>
-                            <li>Maintain content quality and consistency.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Committee Member</div>
-                        <div class="cv-item-org">Robotic Society of Technology, Rajarata University</div>
-                        <div class="cv-item-date">Feb 2026 – Present</div>
-                        <ul class="cv-item-bullets">
-                            <li>Assist in organizing robotics events and workshops.</li>
-                            <li>Support outreach and student engagement initiatives.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Photographer &amp; Graphic Designer</div>
-                        <div class="cv-item-org">FOT Media Official Media Unit</div>
-                        <div class="cv-item-date">2024 – Present</div>
-                        <ul class="cv-item-bullets">
-                            <li>Produce photography and visual content for university events.</li>
-                            <li>Design posters, banners, and social media graphics.</li>
-                            <li>Support media coverage and promotional campaigns.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Former HR Manager</div>
-                        <div class="cv-item-org">FOT Media Official Media Unit</div>
-                        <div class="cv-item-date">Feb 2025 – Jan 2026</div>
-                        <ul class="cv-item-bullets">
-                            <li>Managed recruitment and onboarding activities.</li>
-                            <li>Coordinated internal communications and team welfare.</li>
-                            <li>Organized meetings and training sessions.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Project Lead &amp; Member</div>
-                        <div class="cv-item-org">ATIT – Association of Technology IT</div>
-                        <div class="cv-item-date">Oct 2024 – Present</div>
-                        <ul class="cv-item-bullets">
-                            <li>Led technical exhibition projects.</li>
-                            <li>Coordinated planning, scheduling, and implementation.</li>
-                            <li>Managed team collaboration and event execution.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="cv-item">
-                    <div class="cv-item-dot"></div>
-                    <div class="cv-item-content">
-                        <div class="cv-item-title">Member</div>
-                        <div class="cv-item-org">RUSL Hiking Club</div>
-                        <div class="cv-item-date">Feb 2025 – Present</div>
-                        <ul class="cv-item-bullets">
-                            <li>Participated in outdoor activities and hiking expeditions.</li>
-                            <li>Contributed to community-building and teamwork initiatives.</li>
-                        </ul>
-                    </div>
-                </div>
-
-            </main>
-        </div><!-- end .cv-body (page 2) -->
-    </div><!-- end .cv-page (page 2) -->
-
-    <script>
-        document.getElementById('download-btn').addEventListener('click', function() {
-            // Try to open the PDF file for download
-            const link = document.createElement('a');
-            link.href = '../My CV New.pdf';
-            link.download = 'dinithi sewmini.pdf';
-            link.click();
-            
-            // Fallback: Also offer print-to-PDF option
-            setTimeout(() => {
-                const printOption = confirm('PDF download started. Would you also like to print/save as PDF?');
-                if (printOption) {
-                    window.print();
-                }
-            }, 500);
-        });
-    </script>
+</html>
 </body>
 </html>
