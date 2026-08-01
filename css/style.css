@@ -779,6 +779,7 @@ section {
   background: linear-gradient(135deg, rgba(65, 90, 119, 0.1), transparent);
   opacity: 0;
   transition: 0.4s;
+  pointer-events: none;
 }
 .project-card:hover {
   border-color: var(--main-color);
@@ -837,6 +838,9 @@ section {
   padding: 1rem 2.5rem;
   font-size: 1.5rem;
   margin-top: 0.5rem;
+  position: relative;
+  z-index: 5;
+  cursor: pointer;
 }
 
 .project-features {
