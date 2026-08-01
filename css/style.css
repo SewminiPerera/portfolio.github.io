@@ -839,6 +839,28 @@ section {
   margin-top: 0.5rem;
 }
 
+.project-features {
+  list-style: none;
+  margin: 0.8rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.project-features li {
+  font-size: 1.35rem;
+  color: var(--text-color-muted);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.project-features li i {
+  color: var(--main-color);
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
 /* ===========================
    GRAPHICS SECTION
    =========================== */
